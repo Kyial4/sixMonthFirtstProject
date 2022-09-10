@@ -30,9 +30,9 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.history.observe(viewLifecycleOwner,{
+        viewModel.history.observe(viewLifecycleOwner, {
             binding.tvRes.text = it
+        })
+
     }
-
-
 }

@@ -15,6 +15,10 @@ class ResultFragment : Fragment() {
     private lateinit var binding: FragmentResultBinding
     private lateinit var viewModel: MainViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,15 +26,15 @@ class ResultFragment : Fragment() {
     ): View? {
         binding = FragmentResultBinding.inflate(layoutInflater)
         return binding.root
-        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.counter.observe(requireActivity()){
-            binding.tvCounter.text.toString()
+            binding.tvCounter.text=it.toString()
     }
 
 
 
+}
 }
